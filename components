@@ -1,0 +1,1280 @@
+//About
+
+//About.jsx
+
+import React from 'react';
+import Back from '../common/back/Back';
+import AboutCard from './AboutCard';
+
+const About = () => {
+  return (
+    <>
+      
+      <Back title='About Us'/>
+      <AboutCard />
+    </>
+  );
+}
+
+export default About;
+
+//About.css
+.aboutHome {
+    height: auto;
+  }
+  .aboutHome #heading {
+    text-align: left;
+    padding: 0;
+  }
+  .aboutHome .left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .aboutHome .right {
+    padding: 80px 50px;
+  }
+  .aboutHome .items {
+    margin-top: 50px;
+  }
+  .aboutHome .item {
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 20px;
+    transition: 0.5s;
+  }
+  .aboutHome .img {
+    width: 200px;
+  }
+  .aboutHome img {
+    width: 70px;
+    height: 70px;
+  }
+  .aboutHome .item h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .aboutHome .item p {
+    color: #999999;
+  }
+  .aboutHome .item:hover {
+    background-color: #1eb2a6;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 25px -2px rgb(0 0 0 / 6%);
+  }
+  .aboutHome .item:hover p {
+    color: #fff;
+  }
+  /*----------awrapper------------*/
+  .awrapper {
+    background-image: url("../../../public/images/awrapper.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    color: #fff;
+  }
+  .awrapper .box {
+    padding: 70px 0;
+  }
+  .awrapper img {
+    margin-right: 30px;
+  }
+  .awrapper h1 {
+    font-size: 50px;
+  }
+  .awrapper h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  /*----------awrapper------------*/
+  @media screen and (max-width: 768px) {
+    .aboutHome .container {
+      flex-direction: column-reverse;
+    }
+    .aboutHome .row {
+      width: 100%;
+    }
+    .awrapper {
+      height: 50vh;
+    }
+  }
+
+//AboutCard.jsx
+
+import React from 'react';
+import Title from '../common/title/Title';
+import { homeAbout } from '../../dummydata';
+import AWrapper from './AWrapper';
+import "./about.css"
+
+const AboutCard = () => {
+  return (
+    <>
+      <section className='aboutHome'>
+        <div className="container flexSB">
+            <div className="left row">
+                <img src='./images/about.webp' alt=''/>
+            </div>
+            <div className='right row'>
+            <Title subtitle='LEARN ANYTHING' title='Adolescent Girl`s Education and Empowerment' />
+            <div className="items">{homeAbout.map((val)=>(
+                <div className="item flexSB">
+                    <div className='img'>
+                        <img src={val.cover} alt=''/>
+                    </div>
+                    <div className="text">
+                        <h2>{val.title}</h2>
+                        <p>{val.desc}</p>
+                    </div>
+                </div>
+            ))}
+                 
+            </div>
+            </div>
+        </div>
+      </section>
+      <AWrapper />
+    </>
+  );
+}
+
+export default AboutCard;
+
+//AWrapper.jsx
+import React from 'react';
+import { awrapper } from '../../dummydata';
+
+const Awrapper = () => {
+    return (
+      <>
+        <section className='awrapper'>
+          <div className='container grid'>
+            {awrapper.map((val) => {
+              return (
+                <div className='box flex'>
+                  <div className='img'>
+                    <img src={val.cover} alt='' />
+                  </div>
+                  <div className='text'>
+                    <h1>{val.data}</h1>
+                    <h3>{val.title}</h3>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      </>
+    )
+  }
+  
+  export default Awrapper
+
+
+//CourseHome.jsx
+import React from 'react';
+import Back from '../common/back/Back';
+import CoursesCard from './CoursesCard';
+
+const CourseHome = () => {
+  return (
+    <>
+      <Back title='Explore Courses'/>
+      <CoursesCard />
+    </>
+  );
+}
+
+export default CourseHome;
+
+//courses.css
+.coursesCard {
+    padding: 50px 0;
+  }
+  .coursesCard .items {
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+  }
+  .coursesCard .img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #1eb2a6;
+    padding: 15px;
+  }
+  .coursesCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .coursesCard .text {
+    margin-left: 15px;
+    text-align: left;
+  }
+  .coursesCard .text h1 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 45px;
+  }
+  .coursesCard .rate {
+    margin: 20px 0;
+    color: #1eb2a6;
+  }
+  .coursesCard .rate i {
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  .coursesCard .details .dimg img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  .coursesCard .details .box {
+    display: flex;
+    align-items: center;
+    color: grey;
+  }
+  .coursesCard .details span {
+    color: #1eb2a6;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .coursesCard .price {
+    margin: 30px 0;
+    background-color: #f8f8f8;
+    padding: 10px;
+  }
+  .coursesCard h3 {
+    font-weight: 500;
+    color: #1eb2a6;
+  }
+  /*-------------online---------*/
+  .online {
+    text-align: center;
+  }
+  .online .box {
+    box-shadow: 0 5px 25px -2px rgb(0 0 0 / 6%);
+    background-color: #fff;
+    padding: 30px 20px;
+    transition: 0.5s;
+  }
+  .online .img {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    position: relative;
+  }
+  .online img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .online h1 {
+    font-weight: 500;
+    font-size: 20px;
+    margin: 20px 0;
+    line-height: 30px;
+  }
+  .online span {
+    background-color: #f8f8f8;
+    padding: 5px 20px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #1eb2a6;
+    border-radius: 5px;
+  }
+  .online .box .show {
+    opacity: 0;
+  }
+  .online .box:hover {
+    background-color: #1eb2a6;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .online .box:hover .show {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .online .box:hover h1 {
+    color: #fff;
+  }
+  /*-------------online---------*/
+  @media screen and (max-width: 768px) {
+  }
+
+//CoursesCard.jsx
+
+import React from "react"
+import "./courses.css"
+import { coursesCard } from "../../dummydata"
+
+const CoursesCard = () => {
+  return (
+    <>
+      <section className='coursesCard'>
+        <div className='container grid2'>
+          {coursesCard.map((val) => (
+            <div className='items'>
+              <div className='content flex'>
+                <div className='left'>
+                  <div className='img'>
+                    <img src={val.cover} alt='' />
+                  </div>
+                </div>
+                <div className='text'>
+                  <h1>{val.coursesName}</h1>
+                  <div className='rate'>
+                    <i className='fa fa-star'></i>
+                    <i className='fa fa-star'></i>
+                    <i className='fa fa-star'></i>
+                    <i className='fa fa-star'></i>
+                    <i className='fa fa-star'></i>
+                    <label htmlFor=''>(5.0)</label>
+                  </div>
+                  <div className='details'>
+                    {val.courTeacher.map((details) => (
+                      <>
+                        <div className='box'>
+                          <div className='dimg'>
+                            <img src={details.dcover} alt='' />
+                          </div>
+                          <div className='para'>
+                            <h4>{details.name}</h4>
+                          </div>
+                        </div>
+                        <span>{details.totalTime}</span>
+                      </>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className='price'>
+                <h3>
+                  {val.priceAll} / {val.pricePer}
+                </h3>
+              </div>
+              <button className='outline-btn'>ENROLL NOW !</button>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default CoursesCard
+
+//OnlineCourses.jsx
+import React from "react"
+import "./courses.css"
+import { online } from "../../dummydata"
+import Heading from "../common/heading/Heading"
+
+const OnlineCourses = () => {
+  return (
+    <>
+      <section className='online'>
+        <div className='container'>
+          <Heading subtitle='COURSES' title='Browse Our Online Courses' />
+          <div className='content grid3'>
+            {online.map((val) => (
+              <div className='box'>
+                <div className='img'>
+                  <img src={val.cover} />
+                  <img src={val.hoverCover} alt='' className='show' />
+                </div>
+                <h1>{val.courseName}</h1>
+                <span>{val.course}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default OnlineCourses
+
+
+//Blog.js
+import React from "react"
+import Back from "../common/back/Back"
+import BlogCard from "./BlogCard"
+import "./blog.css"
+
+const Blog = () => {
+  return (
+    <>
+      <Back title='Blog Posts' />
+      <section className='blog padding'>
+        <div className='container grid2'>
+          <BlogCard />
+        </div>
+      </section>
+    </>
+  )
+}
+
+Blog.css
+.blog img {
+    width: 100%;
+    height: 100%;
+  }
+  .blog .text {
+    padding: 40px 30px;
+  }
+  .blog h1 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    margin: 20px 0;
+    transition: 0.5s;
+  }
+  .blog h1:hover {
+    color: #1eb2a6;
+    cursor: pointer;
+  }
+  .blog span {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #1eb2a6;
+  }
+  .blog span label {
+    margin-left: 10px;
+    color: grey;
+    font-size: 14px;
+  }
+  .blog span:nth-last-child(1) label {
+    color: #1eb2a6;
+  }
+  .blog p {
+    color: grey;
+  }
+
+//BlogCard.jsx
+
+import React from "react"
+import { blog } from "../../dummydata"
+
+const BlogCard = () => {
+  return (
+    <>
+      {blog.map((val) => (
+        <div className='items shadow'>
+          <div className='img'>
+            <img src={val.cover} alt='' />
+          </div>
+          <div className='text'>
+            <div className='admin flexSB'>
+              <span>
+                <i className='fa fa-user'></i>
+                <label htmlFor=''>{val.type}</label>
+              </span>
+              <span>
+                <i className='fa fa-calendar-alt'></i>
+                <label htmlFor=''>{val.date}</label>
+              </span>
+              <span>
+                <i className='fa fa-comments'></i>
+                <label htmlFor=''>{val.com}</label>
+              </span>
+            </div>
+            <h1>{val.title}</h1>
+            <p>{val.desc}</p>
+          </div>
+        </div>
+      ))}
+    </>
+  )
+}
+
+export default BlogCard
+
+//COMMON
+
+//Back
+import React from "react"
+import { useLocation } from "react-router-dom"
+
+const Back = ({ title }) => {
+  const location = useLocation()
+
+  return (
+    <>
+      <section className='back'>
+        <h2>Home / {location.pathname.split("/")[1]}</h2>
+        <h1>{title}</h1>
+      </section>
+      <div className='marigin'></div>
+    </>
+  )
+}
+
+export default Back
+
+//Footer
+import React from "react"
+import { blog } from "../../../dummydata"
+import "./footer.css"
+
+const Footer = () => {
+  return (
+    <>
+      <section className='newletter'>
+        <div className='container flexSB'>
+          <div className='left row'>
+            <h1>LetterBox - Stay tune and share your stories here!</h1>
+            <span>Empowering Your Emotional Journey</span>
+          </div>
+          <div className='right row'>
+            <input type='text' placeholder='Enter email address' />
+            <i className='fa fa-paper-plane'></i>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div className='container padding'>
+          <div className='box logo'>
+            <h1>NURTURE</h1>
+            <span>ONLINE ASSISTANCE FOR ADOLECENT GIRLS!</span>
+            <p>We have to tell our Girls that they can reach as high as humanly possible.</p>
+
+            <i className='fab fa-facebook-f icon'></i>
+            <i className='fab fa-twitter icon'></i>
+            <i className='fab fa-instagram icon'></i>
+          </div>
+          <div className='box link'>
+            <h3>Explore</h3>
+            <ul>
+              <li>About Us</li>
+              <li>Services</li>
+              <li>Courses</li>
+             
+              <li>Contact us</li>
+            </ul>
+          </div>
+          <div className='box link'>
+            <h3>Quick Links</h3>
+            <ul>
+              <li>Contact Us</li>
+              
+              <li>Terms & Conditions</li>
+              <li>Privacy</li>
+              <li>Feedbacks</li>
+            </ul>
+          </div>
+          <div className='box'>
+            <h3>Success Story</h3>
+            {blog.slice(0, 3).map((val) => (
+              <div className='items flexSB'>
+                <div className='img'>
+                  <img src={val.cover} alt='' />
+                </div>
+                <div className='text'>
+                  <span>
+                    <i className='fa fa-calendar-alt'></i>
+                    <label htmlFor=''>{val.date}</label>
+                  </span>
+                  <span>
+                    <i className='fa fa-user'></i>
+                    <label htmlFor=''>{val.type}</label>
+                  </span>
+                  <h4>{val.title.slice(0, 40)}...</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className='box last'>
+            <h3>Have a Questions?</h3>
+            <ul>
+              <li>
+                <i className='fa fa-map'></i>
+                Flame Rebels, and Teammates
+              </li>
+              <li>
+                <i className='fa fa-phone-alt'></i>
+                9349900329
+              </li>
+              <li>
+                <i className='fa fa-paper-plane'></i>
+                nutrture@yourdomain.com
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <div className='legal'>
+        <p>
+          Copyright ©2023 All rights reserved | This template is made with <i className='fa fa-heart'></i> by Flame Rebels
+        </p>
+      </div>
+    </>
+  )
+}
+
+export default Footer
+
+//footer.css
+.newletter {
+    background-color: #1eb2a6;
+    padding: 50px 0;
+    color: #fff;
+  }
+  .newletter .right,
+  .newletter .left {
+    padding-right: 50px;
+  }
+  .newletter h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  .newletter .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .newletter input {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    outline: none;
+    height: 30px;
+  }
+  .newletter i {
+    padding: 12px;
+    color: #1eb2a6;
+    background-color: #fff;
+  }
+  footer {
+    background-color: #eeeeee;
+  }
+  footer .container {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 4fr 3fr;
+    grid-gap: 30px;
+  }
+  @media screen and (max-width: 768px) {
+    footer .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  footer .logo span {
+    color: #1eb2a6;
+    font-size: 14px;
+  }
+  footer .logo p {
+    color: grey;
+    margin: 30px 0 15px 0;
+  }
+  footer .logo .icon {
+    background-color: #1eb2a6;
+    color: white;
+    margin-right: 10px;
+  }
+  footer h3 {
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  footer ul li {
+    margin-bottom: 20px;
+  }
+  footer .link li::before {
+    content: "⟶";
+    color: #1eb2a6;
+    margin-right: 5px;
+  }
+  footer .items {
+    margin-bottom: 30px;
+  }
+  footer .items img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  footer .items span,
+  footer .items i {
+    font-size: 12px;
+    color: #1eb2a6;
+    margin-right: 5px;
+    text-transform: capitalize;
+  }
+  footer h4 {
+    font-weight: 400;
+    margin-top: 5px;
+  }
+  footer .last ul li {
+    display: flex;
+    margin-bottom: 50px;
+  }
+  footer .last i {
+    width: 60px;
+    font-size: 20px;
+    color: #1eb2a6;
+  }
+  .legal {
+    text-align: center;
+    padding: 50px 0;
+    color: grey;
+    background-color: #e9e9e9;
+  }
+  .legal p {
+    font-size: 15px;
+  }
+  .legal i {
+    color: #1eb2a6;
+  }
+
+//heading
+Head.jsx
+import React from 'react';
+
+const Head = () => {
+  return (
+    <>
+      <section className='head'>
+        <div className="container flexSB">
+            <div className="logo">
+                <h1>NURTURE</h1>
+                <span>Right Time! Right Place! Nurture Girls!</span>
+            </div>
+
+            <div className="social">
+                <i className='fab fa-facebook-f icon'></i>
+                <i className='fab fa-instagram icon'></i>
+                <i className='fab fa-twitter icon'></i>
+                <i className='fab fa-youtube icon'></i>
+            </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Head;
+
+//header.css
+.head{
+    padding: 20px 0;
+    color:#fff;
+    }
+.logo h1{
+    font-size: 35px;
+    font-weight: 900;
+}    
+.head .icon{
+    margin-left: 10px;
+}
+
+/*_________________________header_________________________*/
+header{
+   background-color: rgba(255,255,255,0.2);
+   margin: 0 30px;
+   position: relative;
+}
+header ul{
+    padding: 30px 20px;
+}
+header li{
+    margin-right: 40px;
+}
+header ul li a{
+    color:#fff;
+    font-weight: 500;
+    transition: 0.5s;
+}
+header ul li a:hover{
+    color: #1eb2a6;
+}
+.start{
+    background-color: #1eb2a6;
+    padding: 30px 70px;
+    color: #fff;
+    clip-path: polygon(10% 0,100% 0,100% 100%,0 100%);
+}
+.toggle{
+    display: none;
+}
+
+@media screen and (max-width:768px){
+    .start{
+        clip-path: none;
+    }
+    header {
+        margin: 0;
+        background-color: #1eb2a6;
+        position: relative;
+    }
+    header ul.flexSB{
+        display: none;
+    }
+    header ul li{
+        margin-bottom: 20px;
+    }
+    .toggle{
+        display: block;
+        background: none;
+        color: #fff;
+        font-size: 30px;
+        position: absolute;
+        right: 50px;
+        top: -20px;
+    }
+    .mobile-nav{
+        position: absolute;
+        top: 7vh;
+        left: 0;
+        width: 100%;
+        background-color: #1eb2a6;
+    }
+}
+
+//header.jsx
+import React, { useState } from 'react';
+import Head from './Head';
+import "./header.css"
+import { Link }from "react-router-dom"
+
+const Header = () => {
+    const [click, setClick]= useState(false)
+  return (
+    <>
+      <Head />
+      <header>
+        <nav className='flexSB'>
+            <ul className={click ? "mobile-nav":"flexSB"} onClick={()=> setClick(false)}>
+                <li><Link to="/">Home</Link></li>
+                
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/courses">Explore Courses</Link></li>
+                <li><Link to="/team">Team</Link></li>
+                
+                <li><Link to="/contact">Contact</Link></li>
+            </ul>
+            <div className='start'>
+                <div className='button'>ASK ME: Your Personal Guide!</div>
+            </div>
+            <button className='toggle' onClick={()=> setClick(!click)}>
+                {click ? <i className="fa fa-times"></i>: <i className="fa fa-bars"></i>}
+            </button>
+        </nav>
+      </header>
+    </>
+  )
+}
+
+export default Header;
+
+
+//title
+import React from 'react';
+
+const Title = ({subtitle, title}) => {
+  return (
+    <div>
+      <div id='heading'>
+        <h3>{subtitle}</h3>
+        <h1>{title}</h1>
+      </div>
+    </div>
+  );
+}
+
+export default Title;
+
+
+//contact
+//Contact.jsx
+import React from "react"
+import Back from "../common/back/Back"
+import "./contact.css"
+
+const Contact = () => {
+  const map = 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d904726.6131739549!2d85.24565535!3d27.65273865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1652535615693!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" '
+  return (
+    <>
+      <Back title='Contact us' />
+      <section className='contacts padding'>
+        <div className='container shadow flexSB'>
+          <div className='left row'>
+            <iframe src={map}></iframe>
+          </div>
+          <div className='right row'>
+            <h1>Contact us</h1>
+            <p>We're open for any suggestion or just to have a chat</p>
+
+            <div className='items grid2'>
+              <div className='box'>
+                <h4>ADDRESS:</h4>
+                <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+              </div>
+              <div className='box'>
+                <h4>EMAIL:</h4>
+                <p> info@yoursite.com</p>
+              </div>
+              <div className='box'>
+                <h4>PHONE:</h4>
+                <p> + 1235 2355 98</p>
+              </div>
+            </div>
+
+            <form action=''>
+              <div className='flexSB'>
+                <input type='text' placeholder='Name' />
+                <input type='email' placeholder='Email' />
+              </div>
+              <input type='text' placeholder='Subject' />
+              <textarea cols='30' rows='10'>
+                Create a message here...
+              </textarea>
+              <button className='primary-btn'>SEND MESSAGE</button>
+            </form>
+
+            <h3>Follow us here</h3>
+            <span>FACEBOOK TWITTER INSTAGRAM DRIBBBLE</span>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default Contact
+
+//contact.css
+.contacts iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .contacts .right {
+    padding: 50px;
+  }
+  .contacts h1 {
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .contacts p {
+    color: grey;
+  }
+  .contacts .items {
+    margin: 30px 0;
+  }
+  .contacts .box p {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  .contacts textarea,
+  .contacts input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    outline: none;
+    border: 1px solid grey;
+  }
+  form .flexSB input:nth-child(1) {
+    margin-right: 10px;
+  }
+  .contacts h3 {
+    margin-top: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .contacts span {
+    color: #1eb2a6;
+    font-weight: 600;
+    font-size: 15px;
+    word-spacing: 5px;
+  }
+  @media screen and (max-width: 768px) {
+    .contacts .container {
+      flex-direction: column;
+    }
+    .contacts iframe {
+      height: 50vh;
+    }
+    .contacts .row {
+      width: 100%;
+    }
+  }
+
+//Home
+//Home.jsx
+import React from 'react';
+import Hero from './hero/Hero';
+
+const Home = () => {
+  return (
+    <>
+      <Hero/>
+    </>
+  );
+}
+
+export default Home;
+
+//HAbout.jsx
+
+import React from "react"
+import OnlineCourses from "../allcourses/OnlineCourses"
+import Heading from "../common/heading/Heading"
+import "../allcourses/courses.css"
+import { coursesCard } from "../../dummydata"
+
+const HAbout = () => {
+  return (
+    <>
+      <section className='homeAbout'>
+        <div className='container'>
+          <Heading subtitle='our courses' title='explore our popular online courses' />
+
+          <div className='coursesCard'>
+            {/* copy code form  coursesCard */}
+            <div className='grid2'>
+              {coursesCard.slice(0, 3).map((val) => (
+                <div className='items'>
+                  <div className='content flex'>
+                    <div className='left'>
+                      <div className='img'>
+                        <img src={val.cover} alt='' />
+                      </div>
+                    </div>
+                    <div className='text'>
+                      <h1>{val.coursesName}</h1>
+                      <div className='rate'>
+                        <i className='fa fa-star'></i>
+                        <i className='fa fa-star'></i>
+                        <i className='fa fa-star'></i>
+                        <i className='fa fa-star'></i>
+                        <i className='fa fa-star'></i>
+                        <label htmlFor=''>(5.0)</label>
+                      </div>
+                      <div className='details'>
+                        {val.courTeacher.map((details) => (
+                          <>
+                            <div className='box'>
+                              <div className='dimg'>
+                                <img src={details.dcover} alt='' />
+                              </div>
+                              <div className='para'>
+                                <h4>{details.name}</h4>
+                              </div>
+                            </div>
+                            <span>{details.totalTime}</span>
+                          </>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className='price'>
+                    <h3>
+                      {val.priceAll} / {val.pricePer}
+                    </h3>
+                  </div>
+                  <button className='outline-btn'>ENROLL NOW !</button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <OnlineCourses />
+      </section>
+    </>
+  )
+}
+
+export default HAbout
+
+//Hero
+//hero.jsx
+import React from 'react';
+import "./hero.css"
+import Title from '../../common/title/Title';
+
+const Hero = () => {
+  return (
+    <>
+      <section className='hero'>
+        <div className="container">
+            <div className="row">
+                <Title subtitle='WELCOME TO NURTURE' title="Best Online Assistance for adolescent Girls."/>
+                <p>Adolescent girls are vulnerable to wrong Decision Making and are deprived of right education required for emotional well-being and healthy relationships.Surpass Myths and Educate Girls!</p>
+            <div className="button">
+                <button className='primary-btn'>
+                    GET STARTED NOW<i className='fa fa-long-arrow-alt-right'></i>
+                </button>
+                <button>
+                    VIEW COURSE<i className='fa fa-long-arrow-alt-right'></i>
+                </button>
+            </div>
+            </div>
+        </div>
+      </section>
+      <div className="marigin"></div>
+    </>
+  );
+}
+
+export default Hero;
+
+//hero.css
+.hero{
+    background-image: url("../../../../public/images/bg.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    padding-top: 20%;
+    padding-right: 50px;
+    color: #fff;
+}
+.hero #heading h3{
+    color:#fff;
+}
+.hero #heading{
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:768px) {
+    .margin{
+        height: 40vh;
+    }
+    .hero{
+        background-position: right;
+        padding-top: 50%;
+        height: 80vh;
+    }
+}
+
+//Team
+//Team.jsx
+import React from "react"
+import Back from "../common/back/Back"
+import TeamCard from "./TeamCard"
+import "./team.css"
+
+import "../about/about.css"
+import Awrapper from "../about/AWrapper"
+
+const Team = () => {
+  return (
+    <>
+      <Back title='Team' />
+      <section className='team padding'>
+        <div className='container grid'>
+          <TeamCard />
+        </div>
+      </section>
+      <Awrapper />
+    </>
+  )
+}
+
+export default Team
+
+//team.css
+.team .items {
+    transition: 0.5s;
+  }
+  .team .img {
+    position: relative;
+  }
+  .team img {
+    width: 100%;
+    height: 100%;
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .overlay i {
+    background-color: #000;
+    color: #fff;
+    margin: 5px;
+    transition: 0.5s;
+  }
+  .team .details {
+    padding: 30px;
+    text-align: center;
+  }
+  .team .details h2 {
+    font-weight: 500;
+    font-size: 20px;
+    transition: 0.5s;
+  }
+  .team .details p {
+    font-size: 15px;
+    color: grey;
+    margin-top: 10px;
+    transition: 0.5s;
+  }
+  .team .items:hover {
+    background-color: #1eb2a6;
+    color: #fff;
+    cursor: pointer;
+  }
+  .team .items:hover p {
+    color: #fff;
+  }
+  .team .items:hover .overlay {
+    opacity: 1;
+  }
+  .team .items:hover .overlay i:hover {
+    background-color: #1eb2a6;
+    color: #fff;
+  }
+
+//TeamCard.jsx
+import React from "react"
+import { team } from "../../dummydata"
+
+const TeamCard = () => {
+  return (
+    <>
+      {team.map((val) => (
+        <div className='items shadow'>
+          <div className='img'>
+            <img src={val.cover} alt='' />
+            <div className='overlay'>
+              <i className='fab fa-facebook-f icon'></i>
+              <i className='fab fa-twitter icon'></i>
+              <i className='fab fa-instagram icon'></i>
+              <i className='fab fa-tiktok icon'></i>
+            </div>
+          </div>
+          <div className='details'>
+            <h2>{val.name}</h2>
+            <p>{val.work}</p>
+          </div>
+        </div>
+      ))}
+    </>
+  )
+}
+
+export default TeamCard
+
+
+
+
